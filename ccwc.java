@@ -8,7 +8,7 @@ public class ccwc {
     private static Scanner sc;
     public static void main(String[] args) throws FileNotFoundException{
         String command = args[0];
-        String fileName = args[1];
+        String fileName = args.length == 1 ? args[0] : args[1];
         String filePath = "E:/github/Hemant-Dev/wcTool/" + fileName;
     
         File file = new File(filePath);
@@ -21,15 +21,19 @@ public class ccwc {
             case "-l":
                 System.out.println("Lines: " + getNoOfLines(file));
                 break;
-            case "-w":
+                case "-w":
                 System.out.println("Words: " + getNoOfWords(file));
                 break;
-            case "-m":
+                case "-m":
                 System.out.println("Characters: " + getNoOfCharacters(file));
                 break;
             default:
-
-                break;
+            System.out.print("Size: " + file.length() + "\t");
+            System.out.print("Lines: " + getNoOfLines(file) + "\t");
+            System.out.print("Words: " + getNoOfWords(file) + "\t");
+            System.out.print("Characters: " + getNoOfCharacters(file));
+            System.out.println();
+            break;
         }
     }
     private static long getNoOfLines(File file) throws FileNotFoundException{

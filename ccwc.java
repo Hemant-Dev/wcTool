@@ -23,7 +23,12 @@ public class ccwc {
                 break;
             case "-w":
                 System.out.println("Words: " + getNoOfWords(file));
+                break;
+            case "-m":
+                System.out.println("Characters: " + getNoOfCharacters(file));
+                break;
             default:
+
                 break;
         }
     }
@@ -53,4 +58,19 @@ public class ccwc {
         }
         return words;
     }
+
+    private static long getNoOfCharacters(File file) throws FileNotFoundException{
+        long characters = 0;
+        sc = new Scanner(new FileInputStream(file));
+        try {
+            while (sc.hasNextLine()) {
+                characters += sc.nextLine().length();
+            }
+        }
+        catch(Exception e){
+            System.out.println("Exception Occured");
+        }
+        return characters;
+    }
+
 }
